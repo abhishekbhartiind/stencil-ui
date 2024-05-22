@@ -1,0 +1,18 @@
+.header {
+  padding: 1rem;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  padding: 0 1rem;
+  background-color: white;
+}
+
+.content.open {
+  max-height: 500px; /* Adjust as necessary */
+  padding: 1rem;
+}

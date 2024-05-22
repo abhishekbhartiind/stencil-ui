@@ -10,6 +10,7 @@ export class AppRoot {
   @State() textValue: string = '';
   @State() radioValue: string = 'Option 1';
   @State() textareaValue: string = '';
+  @State() showModal: boolean = false;
 
   handleSelectionChange = (event: CustomEvent<string[]>) => {
     this.selectedOptions = event.detail;
@@ -18,6 +19,10 @@ export class AppRoot {
   handleInputChange(event) {
     const target = event.target;
     this[target.name] = target.value;
+  }
+
+  toggleModal() {
+    this.showModal = !this.showModal;
   }
 
   render() {
@@ -52,6 +57,21 @@ export class AppRoot {
             value={this.textareaValue}
             onInput={event => this.handleInputChange(event)}
           ></input-component>
+        </div>
+        <accordion-component>
+          <accordion-item header="Section 1">
+            <p>Content for section 1</p>
+          </accordion-item>
+          <accordion-item header="Section 2">
+            <p>Content for section 2</p>
+          </accordion-item>
+        </accordion-component>
+        <div>
+          <button onClick={() => this.toggleModal()}>Open Modal</button>
+          <modal-component isOpen={this.showModal}>
+            <p>This is a modal</p>
+            <button onClick={() => this.toggleModal()}>Close Modal</button>
+          </modal-component>
         </div>
       </div>
     );
