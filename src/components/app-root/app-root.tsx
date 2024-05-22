@@ -39,9 +39,15 @@ export class AppRoot {
 
     return (
       <div>
-        <h1>Multi-Select Dropdown</h1>
-        <multi-select-dropdown options={['Option 1', 'Option 2', 'Option 3', 'Option 4']} onSelectionChange={this.handleSelectionChange}></multi-select-dropdown>
-        <p>Selected Options: {this.selectedOptions.join(', ')}</p>
+        <div>
+          <h1>Stencil Multiple Select Dropdown Example</h1>
+          <multi-select options={options} onSelectionChanged={event => this.handleSelectSelectionChange(event)}></multi-select>
+        </div>
+        <div>
+          <h1>Multi-Select Dropdown</h1>
+          <multi-select-dropdown options={['Option 1', 'Option 2', 'Option 3', 'Option 4']} onSelectionChange={this.handleSelectionChange}></multi-select-dropdown>
+          <p>Selected Options: {this.selectedOptions.join(', ')}</p>
+        </div>
         <div>
           <h1>Custom Input Component</h1>
           <input-component
@@ -85,10 +91,6 @@ export class AppRoot {
           </modal-component>
         </div>
         <drag-drop-component></drag-drop-component>
-        <div>
-          <h1>Stencil Multiple Select Dropdown Example</h1>
-          <multi-select options={options} onSelectionChanged={event => this.handleSelectSelectionChange(event)}></multi-select>
-        </div>
       </div>
     );
   }
