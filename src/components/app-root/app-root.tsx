@@ -73,6 +73,7 @@ export class AppRoot {
             <button onClick={() => this.toggleModal()}>Close Modal</button>
           </modal-component>
         </div>
+        <drag-drop-component></drag-drop-component>
       </div>
     );
   }
