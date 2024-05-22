@@ -12,6 +12,10 @@ export class AppRoot {
   @State() textareaValue: string = '';
   @State() showModal: boolean = false;
 
+  handleSelectSelectionChange(event: CustomEvent<string[]>) {
+    console.log('Selected options:', event.detail);
+  }
+
   handleSelectionChange = (event: CustomEvent<string[]>) => {
     this.selectedOptions = event.detail;
   };
@@ -26,6 +30,13 @@ export class AppRoot {
   }
 
   render() {
+    const options = [
+      { value: 'option1', label: 'Option 1' },
+      { value: 'option2', label: 'Option 2' },
+      { value: 'option3', label: 'Option 3' },
+      { value: 'option4', label: 'Option 4' },
+    ];
+
     return (
       <div>
         <h1>Multi-Select Dropdown</h1>
@@ -74,6 +85,10 @@ export class AppRoot {
           </modal-component>
         </div>
         <drag-drop-component></drag-drop-component>
+        <div>
+          <h1>Stencil Multiple Select Dropdown Example</h1>
+          <multi-select options={options} onSelectionChanged={event => this.handleSelectSelectionChange(event)}></multi-select>
+        </div>
       </div>
     );
   }

@@ -6,7 +6,30 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface AccordionComponent {
+    }
+    interface AccordionItem {
+        "header": string;
+    }
     interface AppRoot {
+    }
+    interface DragDropComponent {
+    }
+    interface InputComponent {
+        "checked": boolean;
+        "label": string;
+        "name": string;
+        "options": string[];
+        "placeholder": string;
+        "rows": number;
+        "type": string;
+        "value": string;
+    }
+    interface ModalComponent {
+        "isOpen": boolean;
+    }
+    interface MultiSelect {
+        "options": Array<{ value: string; label: string }>;
     }
     interface MultiSelectDropdown {
         "options": string[];
@@ -26,16 +49,67 @@ export namespace Components {
         "middle": string;
     }
 }
+export interface MultiSelectCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLMultiSelectElement;
+}
 export interface MultiSelectDropdownCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLMultiSelectDropdownElement;
 }
 declare global {
+    interface HTMLAccordionComponentElement extends Components.AccordionComponent, HTMLStencilElement {
+    }
+    var HTMLAccordionComponentElement: {
+        prototype: HTMLAccordionComponentElement;
+        new (): HTMLAccordionComponentElement;
+    };
+    interface HTMLAccordionItemElement extends Components.AccordionItem, HTMLStencilElement {
+    }
+    var HTMLAccordionItemElement: {
+        prototype: HTMLAccordionItemElement;
+        new (): HTMLAccordionItemElement;
+    };
     interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
     }
     var HTMLAppRootElement: {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
+    };
+    interface HTMLDragDropComponentElement extends Components.DragDropComponent, HTMLStencilElement {
+    }
+    var HTMLDragDropComponentElement: {
+        prototype: HTMLDragDropComponentElement;
+        new (): HTMLDragDropComponentElement;
+    };
+    interface HTMLInputComponentElement extends Components.InputComponent, HTMLStencilElement {
+    }
+    var HTMLInputComponentElement: {
+        prototype: HTMLInputComponentElement;
+        new (): HTMLInputComponentElement;
+    };
+    interface HTMLModalComponentElement extends Components.ModalComponent, HTMLStencilElement {
+    }
+    var HTMLModalComponentElement: {
+        prototype: HTMLModalComponentElement;
+        new (): HTMLModalComponentElement;
+    };
+    interface HTMLMultiSelectElementEventMap {
+        "selectionChanged": string[];
+    }
+    interface HTMLMultiSelectElement extends Components.MultiSelect, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMultiSelectElementEventMap>(type: K, listener: (this: HTMLMultiSelectElement, ev: MultiSelectCustomEvent<HTMLMultiSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMultiSelectElementEventMap>(type: K, listener: (this: HTMLMultiSelectElement, ev: MultiSelectCustomEvent<HTMLMultiSelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLMultiSelectElement: {
+        prototype: HTMLMultiSelectElement;
+        new (): HTMLMultiSelectElement;
     };
     interface HTMLMultiSelectDropdownElementEventMap {
         "selectionChange": string[];
@@ -61,13 +135,43 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "accordion-component": HTMLAccordionComponentElement;
+        "accordion-item": HTMLAccordionItemElement;
         "app-root": HTMLAppRootElement;
+        "drag-drop-component": HTMLDragDropComponentElement;
+        "input-component": HTMLInputComponentElement;
+        "modal-component": HTMLModalComponentElement;
+        "multi-select": HTMLMultiSelectElement;
         "multi-select-dropdown": HTMLMultiSelectDropdownElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface AccordionComponent {
+    }
+    interface AccordionItem {
+        "header"?: string;
+    }
     interface AppRoot {
+    }
+    interface DragDropComponent {
+    }
+    interface InputComponent {
+        "checked"?: boolean;
+        "label"?: string;
+        "name"?: string;
+        "options"?: string[];
+        "placeholder"?: string;
+        "rows"?: number;
+        "type"?: string;
+        "value"?: string;
+    }
+    interface ModalComponent {
+        "isOpen"?: boolean;
+    }
+    interface MultiSelect {
+        "onSelectionChanged"?: (event: MultiSelectCustomEvent<string[]>) => void;
+        "options"?: Array<{ value: string; label: string }>;
     }
     interface MultiSelectDropdown {
         "onSelectionChange"?: (event: MultiSelectDropdownCustomEvent<string[]>) => void;
@@ -88,7 +192,13 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
+        "accordion-component": AccordionComponent;
+        "accordion-item": AccordionItem;
         "app-root": AppRoot;
+        "drag-drop-component": DragDropComponent;
+        "input-component": InputComponent;
+        "modal-component": ModalComponent;
+        "multi-select": MultiSelect;
         "multi-select-dropdown": MultiSelectDropdown;
         "my-component": MyComponent;
     }
@@ -97,7 +207,13 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "accordion-component": LocalJSX.AccordionComponent & JSXBase.HTMLAttributes<HTMLAccordionComponentElement>;
+            "accordion-item": LocalJSX.AccordionItem & JSXBase.HTMLAttributes<HTMLAccordionItemElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "drag-drop-component": LocalJSX.DragDropComponent & JSXBase.HTMLAttributes<HTMLDragDropComponentElement>;
+            "input-component": LocalJSX.InputComponent & JSXBase.HTMLAttributes<HTMLInputComponentElement>;
+            "modal-component": LocalJSX.ModalComponent & JSXBase.HTMLAttributes<HTMLModalComponentElement>;
+            "multi-select": LocalJSX.MultiSelect & JSXBase.HTMLAttributes<HTMLMultiSelectElement>;
             "multi-select-dropdown": LocalJSX.MultiSelectDropdown & JSXBase.HTMLAttributes<HTMLMultiSelectDropdownElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
