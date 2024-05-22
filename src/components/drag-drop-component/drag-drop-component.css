@@ -1,0 +1,19 @@
+.drag-container {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.drag-item {
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  cursor: move;
+  text-align: center;
+}
+
+.drag-item:active {
+  background-color: #ddd;
+}
