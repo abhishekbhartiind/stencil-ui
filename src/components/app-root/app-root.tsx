@@ -39,10 +39,44 @@ export class AppRoot {
 
     return (
       <div>
+        <json-display
+          json-data='{
+            "substation_ID": "string",
+            "substation_Feeder_Code": "string",
+            "attribute1": "string",
+            "transformer_Id": "string",
+            "premise_Id": "string",
+            "location_Type": "string",
+            "address1": "string",
+            "address2": "string",
+            "city": "string",
+            "country": "string",
+            "postalCode": "string",
+            "latitude": "string",
+            "longitude": "string",
+            "disNetwork_Type_Id": "string",
+            "locationId": "string",
+            "util_Service_PT_Id": "string",
+            "service_Type": "string",
+            "sP_Longitude": "string",
+            "sP_Latitude": "string",
+            "mac_Id": "string",
+            "note": "string",
+            "admin_StateName": "string",
+            "servicePoint_Id": "string",
+            "amM_Id": "integer",
+            "nestedObject": {
+               "key1": "value1",
+               "key2": "aaa"
+               "nestedArray": [1, 2, 3, 4]
+            }
+         }'
+        ></json-display>
         <div>
           <h1>Stencil Multiple Select Dropdown Example</h1>
           <multi-select options={options} onSelectionChanged={event => this.handleSelectSelectionChange(event)}></multi-select>
         </div>
+
         <link-textarea></link-textarea>
         <div>
           <h1>Multi-Select Dropdown</h1>

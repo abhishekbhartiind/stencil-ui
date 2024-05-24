@@ -1,0 +1,27 @@
+/* json-display.css */
+.json-container {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.json-entry {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  padding: 5px 0;
+}
+
+.json-key {
+  font-weight: bold;
+  color: #333;
+}
+
+.json-value {
+  color: #555;
+  word-break: break-all;
+}

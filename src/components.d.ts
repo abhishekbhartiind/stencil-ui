@@ -25,6 +25,9 @@ export namespace Components {
         "type": string;
         "value": string;
     }
+    interface JsonDisplay {
+        "jsonData": string;
+    }
     interface LinkTextarea {
     }
     interface ModalComponent {
@@ -92,6 +95,12 @@ declare global {
         prototype: HTMLInputComponentElement;
         new (): HTMLInputComponentElement;
     };
+    interface HTMLJsonDisplayElement extends Components.JsonDisplay, HTMLStencilElement {
+    }
+    var HTMLJsonDisplayElement: {
+        prototype: HTMLJsonDisplayElement;
+        new (): HTMLJsonDisplayElement;
+    };
     interface HTMLLinkTextareaElement extends Components.LinkTextarea, HTMLStencilElement {
     }
     var HTMLLinkTextareaElement: {
@@ -156,6 +165,7 @@ declare global {
         "app-root": HTMLAppRootElement;
         "drag-drop-component": HTMLDragDropComponentElement;
         "input-component": HTMLInputComponentElement;
+        "json-display": HTMLJsonDisplayElement;
         "link-textarea": HTMLLinkTextareaElement;
         "modal-component": HTMLModalComponentElement;
         "multi-select": HTMLMultiSelectElement;
@@ -183,6 +193,9 @@ declare namespace LocalJSX {
         "rows"?: number;
         "type"?: string;
         "value"?: string;
+    }
+    interface JsonDisplay {
+        "jsonData"?: string;
     }
     interface LinkTextarea {
     }
@@ -219,6 +232,7 @@ declare namespace LocalJSX {
         "app-root": AppRoot;
         "drag-drop-component": DragDropComponent;
         "input-component": InputComponent;
+        "json-display": JsonDisplay;
         "link-textarea": LinkTextarea;
         "modal-component": ModalComponent;
         "multi-select": MultiSelect;
@@ -236,6 +250,7 @@ declare module "@stencil/core" {
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "drag-drop-component": LocalJSX.DragDropComponent & JSXBase.HTMLAttributes<HTMLDragDropComponentElement>;
             "input-component": LocalJSX.InputComponent & JSXBase.HTMLAttributes<HTMLInputComponentElement>;
+            "json-display": LocalJSX.JsonDisplay & JSXBase.HTMLAttributes<HTMLJsonDisplayElement>;
             "link-textarea": LocalJSX.LinkTextarea & JSXBase.HTMLAttributes<HTMLLinkTextareaElement>;
             "modal-component": LocalJSX.ModalComponent & JSXBase.HTMLAttributes<HTMLModalComponentElement>;
             "multi-select": LocalJSX.MultiSelect & JSXBase.HTMLAttributes<HTMLMultiSelectElement>;
