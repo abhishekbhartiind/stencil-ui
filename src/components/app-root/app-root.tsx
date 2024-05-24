@@ -43,6 +43,7 @@ export class AppRoot {
           <h1>Stencil Multiple Select Dropdown Example</h1>
           <multi-select options={options} onSelectionChanged={event => this.handleSelectSelectionChange(event)}></multi-select>
         </div>
+        <link-textarea></link-textarea>
         <div>
           <h1>Multi-Select Dropdown</h1>
           <multi-select-dropdown options={['Option 1', 'Option 2', 'Option 3', 'Option 4']} onSelectionChange={this.handleSelectionChange}></multi-select-dropdown>

@@ -25,6 +25,8 @@ export namespace Components {
         "type": string;
         "value": string;
     }
+    interface LinkTextarea {
+    }
     interface ModalComponent {
         "isOpen": boolean;
     }
@@ -47,6 +49,8 @@ export namespace Components {
           * The middle name
          */
         "middle": string;
+    }
+    interface TooltipComponent {
     }
 }
 export interface MultiSelectCustomEvent<T> extends CustomEvent<T> {
@@ -87,6 +91,12 @@ declare global {
     var HTMLInputComponentElement: {
         prototype: HTMLInputComponentElement;
         new (): HTMLInputComponentElement;
+    };
+    interface HTMLLinkTextareaElement extends Components.LinkTextarea, HTMLStencilElement {
+    }
+    var HTMLLinkTextareaElement: {
+        prototype: HTMLLinkTextareaElement;
+        new (): HTMLLinkTextareaElement;
     };
     interface HTMLModalComponentElement extends Components.ModalComponent, HTMLStencilElement {
     }
@@ -134,16 +144,24 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLTooltipComponentElement extends Components.TooltipComponent, HTMLStencilElement {
+    }
+    var HTMLTooltipComponentElement: {
+        prototype: HTMLTooltipComponentElement;
+        new (): HTMLTooltipComponentElement;
+    };
     interface HTMLElementTagNameMap {
         "accordion-component": HTMLAccordionComponentElement;
         "accordion-item": HTMLAccordionItemElement;
         "app-root": HTMLAppRootElement;
         "drag-drop-component": HTMLDragDropComponentElement;
         "input-component": HTMLInputComponentElement;
+        "link-textarea": HTMLLinkTextareaElement;
         "modal-component": HTMLModalComponentElement;
         "multi-select": HTMLMultiSelectElement;
         "multi-select-dropdown": HTMLMultiSelectDropdownElement;
         "my-component": HTMLMyComponentElement;
+        "tooltip-component": HTMLTooltipComponentElement;
     }
 }
 declare namespace LocalJSX {
@@ -165,6 +183,8 @@ declare namespace LocalJSX {
         "rows"?: number;
         "type"?: string;
         "value"?: string;
+    }
+    interface LinkTextarea {
     }
     interface ModalComponent {
         "isOpen"?: boolean;
@@ -191,16 +211,20 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface TooltipComponent {
+    }
     interface IntrinsicElements {
         "accordion-component": AccordionComponent;
         "accordion-item": AccordionItem;
         "app-root": AppRoot;
         "drag-drop-component": DragDropComponent;
         "input-component": InputComponent;
+        "link-textarea": LinkTextarea;
         "modal-component": ModalComponent;
         "multi-select": MultiSelect;
         "multi-select-dropdown": MultiSelectDropdown;
         "my-component": MyComponent;
+        "tooltip-component": TooltipComponent;
     }
 }
 export { LocalJSX as JSX };
@@ -212,10 +236,12 @@ declare module "@stencil/core" {
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "drag-drop-component": LocalJSX.DragDropComponent & JSXBase.HTMLAttributes<HTMLDragDropComponentElement>;
             "input-component": LocalJSX.InputComponent & JSXBase.HTMLAttributes<HTMLInputComponentElement>;
+            "link-textarea": LocalJSX.LinkTextarea & JSXBase.HTMLAttributes<HTMLLinkTextareaElement>;
             "modal-component": LocalJSX.ModalComponent & JSXBase.HTMLAttributes<HTMLModalComponentElement>;
             "multi-select": LocalJSX.MultiSelect & JSXBase.HTMLAttributes<HTMLMultiSelectElement>;
             "multi-select-dropdown": LocalJSX.MultiSelectDropdown & JSXBase.HTMLAttributes<HTMLMultiSelectDropdownElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "tooltip-component": LocalJSX.TooltipComponent & JSXBase.HTMLAttributes<HTMLTooltipComponentElement>;
         }
     }
 }

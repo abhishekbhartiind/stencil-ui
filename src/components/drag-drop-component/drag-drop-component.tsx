@@ -9,7 +9,7 @@ export class DragDropComponent {
   @State() items: string[] = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
   @State() dragSrcEl: HTMLElement;
 
-  handleDragStart(e: DragEvent, index: number) {
+  handleDragStart(e: DragEvent) {
     this.dragSrcEl = e.target as HTMLElement;
     if (e.dataTransfer) {
       e.dataTransfer.effectAllowed = 'move';
@@ -43,13 +43,7 @@ export class DragDropComponent {
     return (
       <div class="drag-container">
         {this.items.map((item, index) => (
-          <div
-            class="drag-item"
-            draggable={true}
-            onDragStart={e => this.handleDragStart(e, index)}
-            onDragOver={e => this.handleDragOver(e)}
-            onDrop={e => this.handleDrop(e, index)}
-          >
+          <div class="drag-item" draggable={true} onDragStart={e => this.handleDragStart(e)} onDragOver={e => this.handleDragOver(e)} onDrop={e => this.handleDrop(e, index)}>
             {item}
           </div>
         ))}
