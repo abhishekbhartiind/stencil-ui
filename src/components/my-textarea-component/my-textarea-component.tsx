@@ -13,6 +13,33 @@ export class MyTextareaComponent {
   }
 
   render() {
+    const json = {
+      substation_ID: 'string',
+      substation_Feeder_Code: 'string',
+      attribute1: 'string',
+      transformer_Id: 'string',
+      premise_Id: 'string',
+      location_Type: 'string',
+      address1: 'string',
+      address2: 'string',
+      city: 'string',
+      country: 'string',
+      postalCode: 'string',
+      latitude: 'string',
+      longitude: 'string',
+      disNetwork_Type_Id: 'string',
+      locationId: 'string',
+      util_Service_PT_Id: 'string',
+      service_Type: 'string',
+      sP_Longitude: 'string',
+      sP_Latitude: 'string',
+      mac_Id: 'string',
+      note: 'string',
+      admin_StateName: 'string',
+      servicePoint_Id: 'string',
+      amM_Id: 'integer',
+    };
+
     return (
       <div class="textarea-container">
         <label>
@@ -21,7 +48,7 @@ export class MyTextareaComponent {
             ⓘ
           </a>
         </label>
-        <textarea rows={10}></textarea>
+        <textarea rows={10} value={JSON.stringify(json, null, 2)}></textarea>
 
         {this.showModal ? (
           <div class="modal">
@@ -29,7 +56,7 @@ export class MyTextareaComponent {
               <span class="close" onClick={() => this.toggleModal()}>
                 &times;
               </span>
-              <p>This is a tooltip modal with information.</p>
+              <div>{JSON.stringify(json, null, 2)}</div>
             </div>
           </div>
         ) : null}

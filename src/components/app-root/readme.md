@@ -10,6 +10,7 @@
 ### Depends on
 
 - [multi-select](../multi-select)
+- [main-modal](../main-modal)
 - [my-textarea-component](../my-textarea-component)
 - [multi-select-dropdown](../multi-select-dropdown)
 - [input-component](../input-component)
@@ -22,6 +23,7 @@
 ```mermaid
 graph TD;
   app-root --> multi-select
+  app-root --> main-modal
   app-root --> my-textarea-component
   app-root --> multi-select-dropdown
   app-root --> input-component

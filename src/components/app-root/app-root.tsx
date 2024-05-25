@@ -44,6 +44,9 @@ export class AppRoot {
           <multi-select options={options} onSelectionChanged={event => this.handleSelectSelectionChange(event)}></multi-select>
         </div>
         <div>
+          <main-modal></main-modal>
+        </div>
+        <div>
           <h3>Textarea</h3>
           <my-textarea-component></my-textarea-component>
         </div>

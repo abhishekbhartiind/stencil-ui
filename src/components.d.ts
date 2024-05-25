@@ -30,6 +30,8 @@ export namespace Components {
     }
     interface LinkTextarea {
     }
+    interface MainModal {
+    }
     interface ModalComponent {
         "isOpen": boolean;
     }
@@ -54,6 +56,8 @@ export namespace Components {
         "middle": string;
     }
     interface MyTextareaComponent {
+    }
+    interface MyTextareaModal {
     }
     interface TooltipComponent {
     }
@@ -109,6 +113,12 @@ declare global {
         prototype: HTMLLinkTextareaElement;
         new (): HTMLLinkTextareaElement;
     };
+    interface HTMLMainModalElement extends Components.MainModal, HTMLStencilElement {
+    }
+    var HTMLMainModalElement: {
+        prototype: HTMLMainModalElement;
+        new (): HTMLMainModalElement;
+    };
     interface HTMLModalComponentElement extends Components.ModalComponent, HTMLStencilElement {
     }
     var HTMLModalComponentElement: {
@@ -161,6 +171,12 @@ declare global {
         prototype: HTMLMyTextareaComponentElement;
         new (): HTMLMyTextareaComponentElement;
     };
+    interface HTMLMyTextareaModalElement extends Components.MyTextareaModal, HTMLStencilElement {
+    }
+    var HTMLMyTextareaModalElement: {
+        prototype: HTMLMyTextareaModalElement;
+        new (): HTMLMyTextareaModalElement;
+    };
     interface HTMLTooltipComponentElement extends Components.TooltipComponent, HTMLStencilElement {
     }
     var HTMLTooltipComponentElement: {
@@ -175,11 +191,13 @@ declare global {
         "input-component": HTMLInputComponentElement;
         "json-display": HTMLJsonDisplayElement;
         "link-textarea": HTMLLinkTextareaElement;
+        "main-modal": HTMLMainModalElement;
         "modal-component": HTMLModalComponentElement;
         "multi-select": HTMLMultiSelectElement;
         "multi-select-dropdown": HTMLMultiSelectDropdownElement;
         "my-component": HTMLMyComponentElement;
         "my-textarea-component": HTMLMyTextareaComponentElement;
+        "my-textarea-modal": HTMLMyTextareaModalElement;
         "tooltip-component": HTMLTooltipComponentElement;
     }
 }
@@ -208,6 +226,8 @@ declare namespace LocalJSX {
     }
     interface LinkTextarea {
     }
+    interface MainModal {
+    }
     interface ModalComponent {
         "isOpen"?: boolean;
     }
@@ -235,6 +255,8 @@ declare namespace LocalJSX {
     }
     interface MyTextareaComponent {
     }
+    interface MyTextareaModal {
+    }
     interface TooltipComponent {
     }
     interface IntrinsicElements {
@@ -245,11 +267,13 @@ declare namespace LocalJSX {
         "input-component": InputComponent;
         "json-display": JsonDisplay;
         "link-textarea": LinkTextarea;
+        "main-modal": MainModal;
         "modal-component": ModalComponent;
         "multi-select": MultiSelect;
         "multi-select-dropdown": MultiSelectDropdown;
         "my-component": MyComponent;
         "my-textarea-component": MyTextareaComponent;
+        "my-textarea-modal": MyTextareaModal;
         "tooltip-component": TooltipComponent;
     }
 }
@@ -264,11 +288,13 @@ declare module "@stencil/core" {
             "input-component": LocalJSX.InputComponent & JSXBase.HTMLAttributes<HTMLInputComponentElement>;
             "json-display": LocalJSX.JsonDisplay & JSXBase.HTMLAttributes<HTMLJsonDisplayElement>;
             "link-textarea": LocalJSX.LinkTextarea & JSXBase.HTMLAttributes<HTMLLinkTextareaElement>;
+            "main-modal": LocalJSX.MainModal & JSXBase.HTMLAttributes<HTMLMainModalElement>;
             "modal-component": LocalJSX.ModalComponent & JSXBase.HTMLAttributes<HTMLModalComponentElement>;
             "multi-select": LocalJSX.MultiSelect & JSXBase.HTMLAttributes<HTMLMultiSelectElement>;
             "multi-select-dropdown": LocalJSX.MultiSelectDropdown & JSXBase.HTMLAttributes<HTMLMultiSelectDropdownElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "my-textarea-component": LocalJSX.MyTextareaComponent & JSXBase.HTMLAttributes<HTMLMyTextareaComponentElement>;
+            "my-textarea-modal": LocalJSX.MyTextareaModal & JSXBase.HTMLAttributes<HTMLMyTextareaModalElement>;
             "tooltip-component": LocalJSX.TooltipComponent & JSXBase.HTMLAttributes<HTMLTooltipComponentElement>;
         }
     }
