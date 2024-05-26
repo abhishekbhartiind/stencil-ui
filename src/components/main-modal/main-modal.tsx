@@ -14,7 +14,7 @@ export class MainModal {
   }
 
   toggleHintModal(event: Event) {
-    event.preventDefault();
+    //event.preventDefault();
     this.showHintModal = !this.showHintModal;
   }
 
