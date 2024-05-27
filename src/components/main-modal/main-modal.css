@@ -15,11 +15,10 @@
 }
 
 .hint-modal {
-  top: 50%;
-  left: calc(50% + 200px); /* Adjust based on the width of the main modal */
-  transform: translateY(-50%);
-  margin-left: 20px;
+  top: 20%;
+  left: 60%;
   width: 200px;
+  cursor: move; /* Indicate draggable */
 }
 
 .modal-content {

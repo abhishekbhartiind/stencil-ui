@@ -9,14 +9,39 @@ export class MainModal {
   @State() showMainModal: boolean = false;
   @State() showHintModal: boolean = false;
 
+  private hintModal: HTMLDivElement;
+  private offsetX: number = 0;
+  private offsetY: number = 0;
+
   toggleMainModal() {
     this.showMainModal = !this.showMainModal;
   }
 
   toggleHintModal(event: Event) {
-    //event.preventDefault();
+    event.preventDefault();
     this.showHintModal = !this.showHintModal;
   }
+
+  handleMouseDown(event: MouseEvent) {
+    if (this.hintModal) {
+      this.offsetX = event.clientX - this.hintModal.getBoundingClientRect().left;
+      this.offsetY = event.clientY - this.hintModal.getBoundingClientRect().top;
+      document.addEventListener('mousemove', this.handleMouseMove);
+      document.addEventListener('mouseup', this.handleMouseUp);
+    }
+  }
+
+  handleMouseMove = (event: MouseEvent) => {
+    if (this.hintModal) {
+      this.hintModal.style.left = `${event.clientX - this.offsetX}px`;
+      this.hintModal.style.top = `${event.clientY - this.offsetY}px`;
+    }
+  };
+
+  handleMouseUp = () => {
+    document.removeEventListener('mousemove', this.handleMouseMove);
+    document.removeEventListener('mouseup', this.handleMouseUp);
+  };
 
   render() {
     return (
@@ -41,9 +66,9 @@ export class MainModal {
         ) : null}
 
         {this.showHintModal ? (
-          <div class="modal hint-modal">
+          <div class="modal hint-modal" ref={el => (this.hintModal = el as HTMLDivElement)} onMouseDown={e => this.handleMouseDown(e)}>
             <div class="modal-content">
-              <span class="close" onClick={() => this.toggleHintModal(event)}>
+              <span class="close" onClick={() => this.toggleHintModal(new MouseEvent('click'))}>
                 &times;
               </span>
               <p>This is a hint modal with additional information.</p>
