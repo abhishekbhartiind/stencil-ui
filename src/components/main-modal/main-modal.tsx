@@ -24,8 +24,9 @@ export class MainModal {
 
   handleMouseDown(event: MouseEvent) {
     if (this.hintModal) {
-      this.offsetX = event.clientX - this.hintModal.getBoundingClientRect().left;
-      this.offsetY = event.clientY - this.hintModal.getBoundingClientRect().top;
+      const rect = this.hintModal.getBoundingClientRect();
+      this.offsetX = event.clientX - rect.left;
+      this.offsetY = event.clientY - rect.top;
       document.addEventListener('mousemove', this.handleMouseMove);
       document.addEventListener('mouseup', this.handleMouseUp);
     }
@@ -57,7 +58,7 @@ export class MainModal {
                   Click for Hint
                 </a>
               </label>
-              <textarea></textarea>
+              <textarea rows={15}></textarea>
               <button class="close" onClick={() => this.toggleMainModal()}>
                 &times;
               </button>
@@ -71,7 +72,7 @@ export class MainModal {
               <span class="close" onClick={() => this.toggleHintModal(new MouseEvent('click'))}>
                 &times;
               </span>
-              <p>This is a hint modal with additional information.</p>
+              <textarea rows={15}></textarea>
             </div>
           </div>
         ) : null}
